@@ -1,0 +1,186 @@
+/* Basic styles */
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #fff;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+header, nav {
+    width: 100%; 
+    text-align: center;
+    background-color: #89CFF0;
+    padding: 20px 0; 
+}
+
+.logo {
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+.logo img {
+    width: 100px; 
+    height: 100px; 
+}
+
+main {
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 20px auto; 
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #6495ED;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff; 
+}
+
+section {
+    padding: 20px;
+    margin-top: 20px;
+    border-bottom: none;
+}
+
+#map-container {
+    width: 90%; 
+    max-width: 1000px; 
+    height: 400px; 
+    margin: 20px auto; 
+}
+
+footer {
+    font-size: 14px;
+    color: #aaa;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 30px;
+    margin: 20px 0;
+}
+
+.grid-layout img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.grid-layout figcaption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #666;
+}
+
+.citation {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #6495ED;
+    font-style: italic;
+}
+
+.citation p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.general-info {
+    background: #D4E2FC;
+    background: linear-gradient(to bottom right, #D4E2FC, #C2D3F6);
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #BCCEDF;
+    transition: all 0.3s ease;
+}
+
+.general-info p:first-child {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    color: #295BA0;
+    margin-bottom: 10px;
+}
+
+.general-info ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.general-info ul li {
+    background: linear-gradient(to right, #6495ED 0%, #6495ED 5px, transparent 5px, transparent);
+    padding: 12px 0;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.general-info ul li:before {
+    content: '•';
+    color: #6495ED;
+    font-size: 20px;
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.general-info ul li:hover {
+    background-color: #e7f0fd;
+    cursor: pointer;
+}
+
+.general-info ul li:hover:before {
+    transform: translateY(-50%) scale(1.2);
+}
+
+#map-section, #gallery-section {
+    background-color: #f0f0f0; 
+    padding: 20px; 
+    margin-top: 20px; 
+}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Avalanches in High Mountain Asia</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_iceaval.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            color: #333;
+            background: #fff;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header, footer {
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #fff;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            padding: 10px;
+            margin-top: 0px;
+            border-bottom: 1px solid #333;
+        }
+        #map-container {
+            height: 100vh;
+            width: 100vw; 
+        }
+        footer {
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+           <div class="logo">
+            <img src="iceavalhma.png" alt="Logo">
+        </div>
+        <h1>IceAvalHMA: Ice Avalanches in High Mountain Asia</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about-section">About This Project</a></li>
+            <li><a href="#map-section">Interactive Map</a></li>
+            <li><a href="#data-section">Data Analytics</a></li>
+            <li><a href="#gallery-section">Global Ice Avalanche Visual Archive</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="about-section">
+            <h2>About This Project</h2>
+            <p>The glaciated part of the High Mountain Asia region has captured scientists' attention for the last three decades as it hosts the largest glacier concentration outside the polar regions. Intense glaciers retreat and the constantly changing picture in this region are caused by global warming, which occurs worldwide in response to increasing human activity and the acceleration of complex environmental changes.
+                A large population lives downstream by rivers which are primarily fed by glaciers. On one hand, such a location substantially contributes to the water supply. On the other hand, it poses a huge threat to human lives due to potential glacial hazard activization.</p>
+                <p>One of the high-risk processes associated with glaciers is glacier avalanches. Starts as a large breakout of ice masses from a steep or hanging glacier, an ice avalanche may travel from the first to even tens of kilometers down the valleys, especially in combination with rock falls or snow avalanches. This process could have indirect effects such as blocking river valleys or causing a moraine-dammed glacial lake breakout, leading to serious secondary hazard risks. According to various scientific studies, ice avalanches are often manifest as the first stage of multi-stage catastrophes.</p>
+                <p></p>
+                <div class="citation">
+                    <p><strong>References:</strong> <p> 1. Alean, J. C. (1985). Ice avalanches: some empirical information about their formation and reach. Journal of Glaciology, 31(109), 324–333.</p>
+                    <p>2. Kraaijenbrink, P., Bierkens, M., Lutz, A. et al. (2017). Impact of a global temperature rise of 1.5 degrees Celsius on Asia’s glaciers. Nature, 549, 257–260. https://doi.org/10.1038/nature23878</p>
+                    <p>3. Treichler, D., Kääb, A., Salzmann, N., & Xu, C. Y. (2019). Recent glacier and lake changes in High Mountain Asia and their relation to precipitation changes. The Cryosphere, 13(11), 2977-3005. https://doi.org/10.5194/tc-13-2977-2019</p>
+                    <p> 4. Salzmann, N., Kääb, A., Huggel, C., Allgöwer, B., & Haeberli, W. (2004). Assessment of the hazard potential of ice avalanches using remote sensing and GIS-modelling. Norwegian Journal of Geography, 58, 74–84. https://doi.org/10.1080/00291950410006805
+                    </p>
+        
+                </div>
+            <h2>Ice Avalanches and Cascading Effect</h2>
+            <p>Cascading disasters refer to a primary natural disaster triggering secondary events, which can lead to a series of emergencies. In the context of glaciers, the process often begins with a triggering event such as an earthquake or a volcanic eruption beneath the ice, a rapid melt, or the buildup of water in glacial lakes, which is known as a jökulhlaup. When a glacier destabilizes, it can result in several cascading events:</p>
+            <ul>
+                <li>Ice Avalanche: Large masses of ice may break away from the glacier and tumble down the slope, gathering rock and debris, and increasing in mass and destructive power.</li>
+                <li>Glacial Lake Outburst Flood (GLOF): The sudden release of water from a glacier or a moraine-dammed lake can cause catastrophic flooding downstream, destroying infrastructure and settlements.</li>
+                <li>Landslide and Debris Flows: The material displaced by an ice avalanche can destabilize the surrounding terrain, leading to landslides or debris flows that can further alter the landscape and river courses.</li>
+                <li>Flooding: The sudden input of water from glacier melt or ice-dammed lakes can lead to riverine flooding, which may be compounded by blocked rivers due to debris or landslides.</li>
+                <li>Infrastructure Failure: The initial disaster can lead to a domino effect, such as the failure of dams or bridges, which in turn causes additional flooding and destruction.</li>
+                <li>Habitat Destruction and Long-Term Ecological Impact: Beyond immediate human casualties and property loss, these events can cause long-term ecological damage, changing landscapes, and disrupting ecosystems.</li>
+            </ul>
+            <div>
+                <figure>
+                    <img src="cascades.jpg" alt="Geomorphic classification of the detachment zone">
+                    <figcaption></figcaption>
+                </figure>
+            </div>
+            <p>The Huascarán disaster refers to the catastrophic events. The 1962 and 1970 events originating from Glaciar 511 on the Nevados Huascarán, the highest peak of which is at 6768 m above sea level in the Peruvian Andes, were particularly severe. On 10 January 1962, an ice avalanche took place with an estimated starting volume of 10 million cubic meters; the avalanche traveled down 16 km and destroyed the city of Ranrahirca, where 4000 people died. On 31 May 1970, the most catastrophic rock-ice avalanche known in history was triggered at 3:23 p.m. by a strong earthquake with a magnitude of 7.7. The avalanche originated from a partially overhanging cliff at 5400 to 6500 m above sea level, where the fractured granite rock of the peak was covered by a 30 metre thick glacier. The avalanche, which had an estimated volume of 50 to 100 million m3, traveled 16 km to Rio Santa down a vertical drop of 4 km. Along its path, the avalanche overrode a hill in the downstream area and completely destroyed the city of Yungay, claiming about 18000 lives.</p>
+            <p>The Kolka–Karmadon rock-ice slide (model visualization on the left) occurred on the northern slope of the Mount Kazbek massif in North Ossetia–Alania (Central Caucasus, Russia) on 20 September 2002, following a partial collapse of the Kolka Glacier. an immense volume of material, estimated between 130 to 140 million cubic meters, was transported during the Karmadon disaster, of which approximately 110 million cubic meters consisted of ice and debris that accumulated in the Karmadon depression. The resulting avalanche and mudflow killed more than 120 people, including a film crew of 27 people, among them Russian actor and director Sergei Bodrov Jr.</p>
+            <p>The Chamoli disaster, which occurred in February 2021 in the Indian state of Uttarakhand, was a devastating event where a part of the Nanda Devi glacier broke off, triggering an avalanche and flash flooding. This flood rushed down the Rishiganga and Dhauliganga river valleys, destroying two hydroelectric stations and leaving over 200 people missing or dead. The disaster brought to light the acute vulnerability of the Himalayan region to climate change and the risks associated with infrastructure development in such fragile ecological zones.            </p>
+            <div class="citation">
+                <p><strong>References:</strong> 
+            <p>Evans, S. G., Tutubalina, O. V., Drobyshev, V. N., Chernomorets, S. S., McDougall, S., Petrakov, D. A., & Hungr, O. (2009). Catastrophic detachment and high-velocity long-runout flow of Kolka Glacier, Caucasus Mountains, Russia in 2002. Geomorphology, 105(3-4), 314-321. https://doi.org/10.1016/j.geomorph.2008.10.008</p>
+            <p>Shugar, D. H., Jacquemart, M., Shean, D., Bhushan, S., Upadhyay, K., Sattar, A., Schwanghart, W., McBride, S., Van Wyk de Vries, M., Mergili, M., Emmer, A., Deschamps-Berger, C., McDonnell, M., Bhambri, R., Allen, S., Berthier, E., Carrivick, J. L., Clague, J. J., Dokukin, M., Dunning, S. A., Frey, H., Gascoin, S., Haritashya, U. K., Huggel, C., Kääb, A., Kargel, J. S., Kavanaugh, J. L., Lacroix, P., Petley, D., Rupper, S., Azam, M. F., Cook, S. J., Dimri, A. P., Eriksson, M., Farinotti, D., Fiddes, J., Gnyawali, K. R., Harrison, S., Jha, M., Koppes, M., Kumar, A., Leinss, S., Majeed, U., Mal, S., Muhuri, A., Noetzli, J., Paul, F., Rashid, I., Sain, K., Steiner, J., Ugalde, F., Watson, C. S., & Westoby, M. J. (2021). A massive rock and ice avalanche caused the 2021 disaster at Chamoli, Indian Himalaya. Science, 373(6552), 300-306. https://doi.org/10.1126/science.abh4455</p>    
+            <p>Both models are created and visualized by M. Nergili (https://www.mergili.at/)</p>
+                </div>
+                <video width="560" height="315" controls>
+                    <source src="video_kolka.mp4" type="video/mp4">
+                </video>
+                <video width="560" height="315" controls>
+                    <source src="video_chamoli.mp4" type="video/mp4">
+                </video>
+            </section>
+        </section>
+        <section id="map-section">
+            <h2>Interactive Map</h2>
+            <div id="map-container" style="height: 600px;"></div>
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <script>
+                var map = L.map('map-container').setView([35.8617, 104.1954], 4);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+        
+                // Array of coordinates
+                var coordinates = [
+                [30.376542, 79.732471],
+                [28.242592, 85.499152],
+                [28.530416, 84.051029],
+                [27.640378, 88.290547],
+                [28.123849, 89.578027],
+                [27.925814, 92.666814],
+                [27.932072, 92.67647],
+                [35.670207, 94.250686],
+                [35.753655, 93.530595],
+                [35.666963, 94.198879],
+                [35.668764, 94.223439],
+                [29.053125, 96.994005],
+                [29.955521, 95.290302],
+                [29.97261, 95.471208],
+                [30.213748, 99.941728],
+                [29.167579, 96.775744],
+                [28.40625, 97.494504],
+                [31.82763, 99.038082],
+                [29.571044, 101.940987],
+                [27.090639, 100.18447],
+                [34.018816, 82.243666],
+                [34.005936, 82.254926],
+                [29.543704, 90.231304],
+                [35.222935, 76.812211],
+                [36.065578, 74.952522],
+                [36.141406, 74.929731],
+                [36.16583, 74.728767],
+                [36.159354, 74.718805],
+                [36.279374, 74.794931],
+                [36.279374, 74.794931],
+                [35.406231, 77.157909],
+                [36.220482, 74.085186],
+                [36.749109, 74.091974],
+                [35.356675, 77.341067],
+                [38.972455, 70.853594],
+                [38.972603, 70.842649],
+                [38.104359, 75.201932],
+                [38.985107, 70.688658],
+                [39.020861, 70.936716],
+                [39.016392, 70.921248],
+                [39.014638, 70.993374],
+                [39.397461, 72.711689],
+                [39.143003, 75.074837],
+                [37.408008, 71.409327],
+                [37.605632, 72.059785],
+                [38.307344, 72.616046],
+                [34.823704, 99.437168],
+                [29.818611, 94.951749],
+                [29.800175, 94.955434],
+                [29.819987, 94.947812],
+                [30.23354, 94.995175],
+                [30.091611, 94.933781],
+                [30.083017, 94.935556],
+                [30.084797, 94.935411],
+                [30.272549, 94.086453],
+                [29.642539, 95.003591],
+                [33.15545, 76.754722],
+                [41.950232, 77.858991],
+                [41.468436, 72.698947],
+                [40.940178, 74.409653]
+
+                ];
+        
+                coordinates.forEach(function(coord) {
+                    L.marker([coord[0], coord[1]]).addTo(map);
+                });
+            </script>
+        </section>
+        <section id="data-section">
+            <h2>Data Overview</h2>
+                <p>This section is based on extensive research represented in the article "Large rock and ice avalanches frequently produce cascading processes in High Mountain Asia" (2024). The authors examined all scientific literature, news, and social media reports published and posted from the 1900s to the present (some post-1900 literature sources report earlier undated events, which they categorize as ‘historical’ or ‘prehistoric’).</p>
+            <div class="general-info">
+                <p><strong>General information</strong></p>
+                <ul>
+                    <li>51 locations were confirmed, producing 60 events in HMA.</li>
+                    <li>These hazards are initiated from elevations ranging between 2803 and 6987 m asl, with a mean of 4821 m asl.</li>
+                    <li>The slopes within the detachment zones vary from 13 to 57 degrees, with a mean slope of 40 degrees.</li>
+                    <li>Over 80% (48) of events originated from glacial and periglacial slopes, including events originating from relatively low-angled slopes.</li>
+                    <li>The largest event occurred prehistorically in the Alai Valley of the Osh region, Kyrgyzstan.</li>
+                    <li>Events have been documented across most sub-regions of HMA, affected hundreds of villages, caused 1366 casualties, displaced more than half a million people, and destroyed hundreds of kilometers of roads and dozens of bridges.</li>
+                </ul>
+            </div>
+            <p>Below are visual representations of various data analyses related to ice, rock, and rock-ice avalanches across different regions. Each graph provides insights into specific aspects of avalanche impacts and their historical distributions.</p>
+            <p>51 locations were confirmed, producing 60 events in HMA. These hazards are initiated from elevations ranging between 2803 and 6987 m asl, with a mean of 4821 m asl. The slopes within the detachment zones vary from 13 to 57 degrees, with a mean slope of 40 degrees. Over 80 % (48) of events originated from glacial and periglacial slopes, including events originating from relatively low-angled slopes. The largest event occurred prehistorically in the Alai Valley of the Osh region, Kyrgyzstan. Events have been documented across most sub-regions of HMA, affected hundreds of villages, caused 1366 casualties, displaced more than half a million people, and destroyed hundreds of kilometers of roads and dozens of bridges.</p>
+            <div class="grid-layout">
+                <figure>
+                    <img src="1.jpg" alt="Geomorphic classification of the detachment zone">
+                    <figcaption>Graph 1. Geomorphic classification of the detachment zone</figcaption>
+                </figure>
+                <figure>
+                    <img src="2.jpg" alt="Count of ice, rock, and rock-ice avalanches">
+                    <figcaption>Graph 2. Count of ice, rock, and rock-ice avalanches</figcaption>
+                </figure>
+                <figure>
+                    <img src="3.jpg" alt="Casualties caused by ice, rock, and rock-ice avalanches">
+                    <figcaption>Graph 3. Casualties caused by ice, rock, and rock-ice avalanches</figcaption>
+                </figure>
+                <figure>
+                    <img src="4.jpg" alt="Count of the two hazard types per region">
+                    <figcaption>Graph 4. Count of the two hazard types per region</figcaption>
+                </figure>
+                <figure>
+                    <img src="5.jpg" alt="Casualties caused by the two hazard types per region">
+                    <figcaption>Graph 5. Casualties caused by the two hazard types per region</figcaption>
+                </figure>
+                <figure>
+                    <img src="6.jpg" alt="Count of five types of subsequent processes related to the initial process">
+                    <figcaptionp>Graph 6. Count of five types of subsequent processes related to the initial process</figcaption>
+                </figure>
+                <figure>
+                    <img src="7.jpg" alt="Count of five types of subsequent processes per region">
+                    <figcaption>Graph 7. Count of five types of subsequent processes per region</figcaption>
+                </figure>
+                <figure>
+                    <img src="8.jpg" alt="Monthly distribution of the two hazard types">
+                    <figcaption>Graph 8. Monthly distribution of the two hazard types</figcaption>
+                </figure>
+                <figure>
+                    <img src="9.jpg" alt="Historic and decadal distribution of the two hazard types">
+                    <figcaption>Graph 9. Historic and decadal distribution of the two hazard types</figcaption>
+                </figure>
+                </div>
+            </div>
+            <div class="citation">
+                <p><strng>Reference:</strong> Yan Zhong <sup>(a)</sup>, Simon Keith Allen <sup>(a,b)</sup>, Guoxiong Zheng <sup>(c)</sup>, Qiao Liud <sup>(d)</sup>, Markus Stoffel <sup>(a,e,f)</sup> (2024). <em>Large rock and ice avalanches frequently produce cascading processes in High Mountain Asia</em>.</p><p><sup>(a)</sup> Climate Change Impacts and Risks in the Anthropocene (C-CIA), Institute for Environmental Sciences, University of Geneva, Switzerland; <sup>(b)</sup> Department of Geography, University of Zurich, Switzerland; <sup>(c)</sup> School of Earth and Environmental Sciences, Lanzhou University, China; <sup>(d)</sup> Institute of Mountain Hazards and Environment, Chinese Academy of Sciences, China; <sup>(e)</sup> Department of Earth Sciences, University of Geneva, Switzerland; <sup>(f)</sup> Department F.-A. Forel for Environmental and Aquatic Sciences, University of Geneva, Switzerland.</p>
+                    <p>https://doi.org/1o0.1016/j.geomorph.2023.109048</p>
+            </div>
+        </section>
+        <section id="gallery-section">
+            <h2>Global Ice Avalanche Visual Archive</h2>
+            <h3>Video Gallery</h3>
+            <div class="grid-layout">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/MtXBhi54HAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video width="560" height="315" controls>
+                <source src="tv_chamoli.mp4" type="video/mp4">
+            </video>
+            </div>
+            <h3>Photo Gallery</h3>
+            <div class="grid-layout">
+            <figure>
+                <img src="ia_1.jpg" alt="Grandes Jorasses and the Italian Val Ferret">
+                <figcaption>Fig 1. South side of the Grandes Jorasses and the Italian Val Ferret. (left inset) Evolution of the hanging glacier from May to June 1998. (right inset) Evolution of the hanging glacier from August to October 2014 (Faillettaz et al., 2015)</figcaption>
+            </figure>    
+            <figure>
+                <img src="ia_2.jpg" alt="The Altelsgletscher before and after its break off">
+                <figcaption>Fig 2. The Altelsgletscher (a) before and (b) after its break off (photograph P. Montandon, 25 November 1894 and 15 September 1895; Archive Alpine Museum, Bern) (Faillettaz et al., 2015)</figcaption>
+            </figure>   
+            <figure>
+                <img src="ia_3.jpg" alt="Marmolada glacier break-off">
+                <figcaption>Fig 3. Marmolada Glacier, Dolomiti group. The dramatic ice avalanche of 3 July 2022 originated near the watershed crest the collapsed ice mass, photo S. Perona, 2022). The detachment scar is clearly visible (photo Centro per la Protezione Civile, Università degli Studi di Firenze)  (Chiarle et al., 2022).</figcaption>
+            </figure> 
+                <figure>
+                <img src="ia_5.jpg" alt="Grandes Murailles Glacier, Aosta Valley">
+                <figcaption>Fig 4. Grandes Jorasses Glacier, Mont Blanc Massif. The fractures in the frontal part of the Whymper Serac are clearly visible (a), from which the ice detachments of October and November 2020 (b) originated (photos Fondazione Montagna Sicura, 2020) (Chiarle et al., 2022).</figcaption>
+            </figure>
+            <figure>
+                <img src="ia_7.jpg" alt="Monte Rosa Glacier 2005 Event">
+                <figcaption>Fig 5. Monte Rosa Glacier, Monte Rosa massif. Detail of the starting zone of the very large ice avalanche of August 2005 (in the background, arrows show the direction of the movement of the detached ice mass; photo L. Fischer, 2005) (Chiarle et al., 2022).</figcaption>
+            </figure>
+            <figure>
+                <img src="ia_9.jpg" alt="Cordillera Blanca. Ice avalanche at Nevado Palcaraju">
+                <figcaption>Fig 6.  Cordillera Blanca. Ice avalanche at Nevado Palcaraju (The World in Images; Created on 23 May 2022 by Martin Mergili).</figcaption>
+            </figure>
+            <figure>
+                <img src="ia_4.jpg" alt="Grandes Murailles Glacier, Aosta Valley">
+                <figcaption>Fig 7. Grandes Murailles Glacier, Aosta Valley. Frontal view of the glacier: in the circle, the sector recurrently subject to large ice collapses (photo A. Cotta Ramusino, 1978) (Chiarle et al., 2022).</figcaption>
+            </figure> 
+            <figure>
+                <img src="ia_8.jpg" alt="Superiore di Coolidge Glacier, Monviso massif">
+                <figcaption>Fig 8. Superiore di Coolidge Glacier, Monviso massif. (a) the glacier in 1987 (photo M. Vanzan); (b) detachment scar of the July 1989 ice avalanche with exposure of the bedrock (photo R. Tibaldi, 1989)(Chiarle et al., 2022).</figcaption>
+            </figure>
+             <figure>
+                <img src="ia_10.jpg" alt="Ice avalanche from Mönch">
+                <figcaption>Fig 9. Large ice avalanche from Mönch, July 5th, 1982. Largest block of this ice avalanche: height 10 metres, width 15 metres; estimated volume 1000 cubic metres. Ice debris on top of the block shows that it did not rotate during sliding. Firn stratigraphy is visible in the block (photo Peter Müller).</figcaption>
+            </figure>
+            <figure>
+                <img src="ia_11.jpg" alt="Ice avalanche from Mönch">
+                <figcaption>Fig 10. Large ice avalanche from Mönch, July 5th, 1982. Large parts of the avalanche descended as relatively compact masses of ice debris and left remarkable tracks. The people on the tracks return from approaching the hanging glacier and are obviously unaware of the danger of further avalanches (photo Peter Müller).</figcaption>
+            </figure>
+            <figure>
+                <img src="ia_12.jpg" alt="Huascaran Disaster">
+                <figcaption>Fig 11. The largest ice avalanche caused by the 1970 Ancash earthquake, Huascaran. 20,000 people dead.</figcaption>
+            </figure>
+            <figure>
+                <img src="ia_13.jpg" alt="Karmadon Disaster">
+                <figcaption>Fig 12. Karmadon Disaster, Kolka Glacier, Central Caucasus (September 20, 2002). 130 people dead. Left photo: right after the disaster, right photo: 10 years later. Currently, Kolka Glacier gained 50% of its pre-catastrophic volume. </figcaption>
+            </figure>
+            </div>
+        </div>
+        <div class="citation">
+            <p><strong>Image and Video References:</strong> <p> 1. Mergili, M. (2010-2024): The world in images. Digital media (https://www.mergili.at/worldimages)</p>
+            <p>2. Faillettaz, J., M. Funk, and C. Vincent (2015), Avalanching glacier instabilities: Review on processes and early warning perspectives, Rev. Geophys., 53, 203–224, doi:10.1002/2014RG000466. </p>
+            <p>3. Chiarle, M., Viani, C., Mortara, G., Deline, P., Tamburini, A., & Nigrelli, G. (2022). Large glacier failures in the Italian Alps over the last 90 years. Geografia Fisica e Dinamica Quaternaria, 45(2), 19-40. https://doi.org/10.4461/GFDQ.2022.45.2</p>
+            <p>4. SwissEduc. (n.d.). Glaciers online. Retrieved April 25, 2024, from https://www.swisseduc.ch/glaciers/</p>
+
+        </div>
+        </section>
+    </main>
+    <footer>
+        <p>©  2024 Ekaterina Bashkova | IceAvalHMA </p>
+    </footer>
+</body>
+</html>
